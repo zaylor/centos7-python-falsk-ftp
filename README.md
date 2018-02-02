@@ -19,7 +19,7 @@ yum install wget gcc make
 * * 1.安装虚拟环境的文件夹：cd /home/pythonVenv	
 * * 2.安装：python3 -m venv TestVenv
 * * 3.开启虚拟环境：source /home/pythonVenv/TestVenv/bin/activate	    
-* * 4.退出虚拟环境：source /home/pythonVenv/TestVenv/bin/deactivate
+* * 4.退出虚拟环境：deactivate
 
 * 安装flask,gunicorn,防火墙添加端口
 * * 1.安装flask：pip install flask
@@ -43,4 +43,11 @@ gunicorn test:app
 #设置8000端口监听，0.0.0.0：所有外网IP
 gunicorn rocket:app -p rocket.pid -b 0.0.0.0:8000 -D
 ```
-
+* * * 6.3 退出虚拟环境：deactivate，安装nginx，安装参考：https://www.cnblogs.com/tangjiansheng/p/6928722.html
+配置就参考项目下面的default.conf
+```Java
+#检查配置：
+nginx -t
+#查看端口：
+ss -tnl | grep 8000
+```
