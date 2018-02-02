@@ -1,4 +1,4 @@
-# centos7安装python3.6.1，pip3，配置默认虚拟环境
+# centos7安装python3.6.1，pip3，默认虚拟环境，flask，nginx，gunicorn
 * 安装一下前置的文件
 ```Java
 yum install openssl-devel bzip2-devel expat-devel gdbm-devel readline-devel sqlite-devel
