@@ -50,4 +50,12 @@ gunicorn rocket:app -p rocket.pid -b 0.0.0.0:8000 -D
 nginx -t
 #查看端口：
 ss -tnl | grep 8000
+#开启nginx服务：
+systemctl start nginx
+#停止服务：
+systemctl stop nginx
+#重启服务：
+systemctl restart nginx
+#开机启动：
+systemctl enable nginx.service，disable
 ```
