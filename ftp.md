@@ -13,6 +13,13 @@ yum install -y vsftpd
 whereis vsftpd
 # 查看ftp服务状态
 systemctl status vsftpd.service
+# 删除ftp，查看版本号
+rpm -qa | grep vsftpd
+# 我的版本是vsftpd-3.0.2-22.el7.x86_64， rpm -e 进行删除
+rpm -e vsftpd-3.0.2-22.el7.x86_64
+# 删除相关配置文件
+cd /etc
+rm -rf vsftpd
 ```
 ##### Complete! 出现表示安装完成
 ### 1.2 启动 VSFTPD
@@ -34,9 +41,9 @@ vi /etc/vsftpd/vsftpd.conf
 # 把YES改成NO
 anonymous_enable=NO
 # 去掉前面的#
-chroot_local_user=NO
+chroot_local_user=YES
 chroot_list_user=YES
-chroot_list_file=/home/project # 并且设置成访问路径
+chroot_list_file=/home # 并且设置成访问路径
 # 最后添加下面一行代码
 allow_writeable_chroot=YES
 # 然后重启
